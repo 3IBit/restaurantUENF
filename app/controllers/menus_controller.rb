@@ -22,6 +22,23 @@ class MenusController < ApplicationController
       @menu = Menu.find(params[:id])
 	end
 
+	def edit
+      @menu = Menu.find(params[:id])
+	end
+
+	def update
+      @menu = Menu.find(params[:id])
+      
+      if @menu.update(menu_params)
+
+        flash[:notice] = "Menu has been updated."
+        redirect_to @menu
+      else
+        flash[:alert] = "Project has not been updated."
+        render 'edit'
+      end
+	end
+
 	private
 
 	 def menu_params
