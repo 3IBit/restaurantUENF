@@ -7,7 +7,10 @@ feature 'Creating Menus' do
 
     click_link 'New Menu'
 
-    select_date(Date.today, from:published_date)
+    select Date.today.day, :from => 'menu_date_3i'
+    select Date::MONTHNAMES[Date.today.month], :from => 'menu_date_2i'
+    select Date.today.year, :from => 'menu_date_1i'
+
 
     click_button 'Create Menu'
 
