@@ -1,0 +1,5 @@
+<h2>Create Menu</h2>
+<%= simple_form_for @menu, defaults: { input_html: { class: 'default_class' } } do |f| %>
+  <%= f.input :date %>
+  <%= f.button :submit %>
+<% end %>
