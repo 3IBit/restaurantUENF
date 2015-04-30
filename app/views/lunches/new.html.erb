@@ -1,0 +1,13 @@
+<%= simple_form_for @lunch, defaults: { input_html: { class: 'default_class' } }  do |f| %>
+ 
+    <%= f.input :salad %>
+    <%= f.input :accompaniment %>
+    <%= f.input :garrison %>
+    <%= f.input :protein1 %>
+    <%= f.input :protein2 %>
+    <%= f.input :protein3 %>
+    <%= f.input :dessert %>
+    <%= f.input :juice %>
+    <%= f.button :submit %>
+
+<% end %>
