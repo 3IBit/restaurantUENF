@@ -22,7 +22,8 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'capybara-bootstrap-datepicker'
+  gem 'capybara-bootstrap-datepicker'  
+  gem 'factory_girl_rails'
 end
 
 
