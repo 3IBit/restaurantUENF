@@ -7,7 +7,7 @@ feature 'Creating Menus' do
 
     click_link 'New Menu'
 
-    select '26/05/2015', :from => 'Date'
+    select_date(Date.today, from:published_date)
 
     click_button 'Create Menu'
 
