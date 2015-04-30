@@ -39,6 +39,15 @@ class MenusController < ApplicationController
       end
 	end
 
+	def destroy
+      @menu = Menu.find(params[:id])
+      @menu.destroy
+
+      flash[:notice] = 'Menu has been destroyed.'
+
+      redirect_to menus_path
+	end
+
 	private
 
 	 def menu_params
