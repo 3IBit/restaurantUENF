@@ -1,4 +1,7 @@
 class MenusController < ApplicationController
+	
+	before_action :set_menu, only: [:show, :edit, :update, :destroy]
+	
 	def index
 		@menus = Menu.all
 	end
@@ -19,16 +22,13 @@ class MenusController < ApplicationController
 	end
 
 	def show
-      @menu = Menu.find(params[:id])
 	end
 
 	def edit
-      @menu = Menu.find(params[:id])
 	end
 
 	def update
-      @menu = Menu.find(params[:id])
-      
+
       if @menu.update(menu_params)
 
         flash[:notice] = "Menu has been updated."
@@ -40,7 +40,6 @@ class MenusController < ApplicationController
 	end
 
 	def destroy
-      @menu = Menu.find(params[:id])
       @menu.destroy
 
       flash[:notice] = 'Menu has been destroyed.'
@@ -49,8 +48,13 @@ class MenusController < ApplicationController
 	end
 
 	private
+    
+      def set_menu
+      	@menu = Menu.find(params[:id])
+      	redirect_to menus_path
+      end
 
-	 def menu_params
-       params.require(:menu).permit(:date)
-	 end
+	  def menu_params
+        params.require(:menu).permit(:date)
+	  end
 end

@@ -2,12 +2,16 @@ require 'rails_helper'
 require 'capybara/rails'
 
 feature 'Creating dinners' do
+
+  before do
+    menu = FactoryGirl.create(:menu)
+    visit '/'
+    click_link menu.date
+    click_link "New Dinner"
+  end
+
   scenario 'can create a dinner' do
-
-    visit '/dinners'
  
-    click_link 'New Dinner'
-
     fill_in 'Salad'        , with: 'Alface'
     fill_in 'Accompaniment', with: 'Feijão'
     fill_in 'Garrison'     , with: 'Espaguete ao sugo'

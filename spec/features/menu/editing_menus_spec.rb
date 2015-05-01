@@ -5,7 +5,7 @@ feature 'Editing Menus' do
   before do
     FactoryGirl.create(:menu, date: Date.today.to_s)
 
-    visit '/menus'
+    visit '/'
     click_link Date.today.to_s
     click_link 'Edit Menu'
   end

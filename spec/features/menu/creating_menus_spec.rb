@@ -2,24 +2,22 @@ require 'rails_helper'
 require 'capybara/rails'
 
 feature 'Creating Menus' do
+    before do
+      visit '/'
+      click_link 'New Menu'
+    end
   scenario "Can create a menu" do
-    visit '/menus'
-
-    click_link 'New Menu'
 
     select Date.today.day, :from => 'menu_date_3i'
     select Date::MONTHNAMES[Date.today.month], :from => 'menu_date_2i'
     select Date.today.year, :from => 'menu_date_1i'
-
-
     click_button 'Create Menu'
 
     expect(page).to have_content('Menu has been created.')
     expect(page).to have_content(Date.today.to_s)
-    expect(page).to have_content('Lunch')
-    expect(page).to have_content('Dinner')
-    expect(page).to have_content('Back')
 
+    menu = Menu.where(date: Date.today.to_s).first
+    expect(page.current_url).to eql(menu_url(menu))
   
   end
 end

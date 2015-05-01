@@ -10,7 +10,7 @@ feature 'Deleting menus' do
   	click_link 'Delete Menu'
 
   	expect(page).to have_content('Menu has been destroyed.')
-  	visit '/menus'
+  	visit '/'
 
   	expect(page).to have_no_content(Date.today.to_s)
   end
