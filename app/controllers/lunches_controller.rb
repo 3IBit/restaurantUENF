@@ -4,12 +4,11 @@ class LunchesController < ApplicationController
   before_action :set_lunch, only: [:show, :edit, :update, :destroy]
 
 	def new
-    @menu = Menu.find(params[:menu_id])
-		@lunch = @menu.lunches.build
+		@lunch = @menu.lunch.build
 	end
 
 	def create
-      @lunch = @menu.lunches.build(lunch_params)
+      @lunch = @menu.lunch.build(lunch_params)
 
        if @lunch.save
          flash[:notice] = 'Lunch has been created.'

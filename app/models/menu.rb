@@ -1,4 +1,4 @@
 class Menu < ActiveRecord::Base
-	has_one :lunches, dependent: :destroy
-	has_one :dinners, dependent: :destroy
+	has_one :lunch, dependent: :destroy
+	has_one :dinner, dependent: :destroy
 end
