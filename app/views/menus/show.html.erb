@@ -1,18 +1,5 @@
 <%= @menu.date %>
 
-<ul>
-  <li> 
-    <% @menu.dinners.each do |dinner| %> 
-         <%= dinner.id %>
-    <% end %>
-  </li>
-  <li>
-    <% @menu.lunches.each do |lunch| %>
-      <%= lunch.id %>
-    <% end %>     
-  </li>
-</ul>
-
 <%= link_to 'Edit Menu', edit_menu_path(@menu) %>
 <%= link_to 'Delete Menu', menu_path(@menu), method: :delete, data: { confirm: 'Are you sure you want to delete this project?' } %>
 <%= link_to 'New Lunch', new_menu_lunch_path(@menu) %>

@@ -9,6 +9,7 @@ class CreateDinners < ActiveRecord::Migration
       t.string :protein3
       t.string :dessert
       t.string :juice
+      t.references :menu, index: true
 
       t.timestamps null: false
     end

@@ -4,6 +4,7 @@ class LunchesController < ApplicationController
   before_action :set_lunch, only: [:show, :edit, :update, :destroy]
 
 	def new
+    @menu = Menu.find(params[:menu_id])
 		@lunch = @menu.lunches.build
 	end
 
@@ -17,6 +18,10 @@ class LunchesController < ApplicationController
          #nothing, yet
        end  
 	end
+
+  def show
+    @lunch = @menu.lunches.find(params[:id])
+  end
 
   def edit
   end
@@ -46,7 +51,7 @@ class LunchesController < ApplicationController
   end
 
   def lunch_params
-   params.require(:lunch).permit(:salad, :accompaniment, :protein1, :protein2, :protein3, :dessert, :juice)
+   params.require(:lunch).permit(:menu_id, :salad, :accompaniment, :protein1, :protein2, :protein3, :dessert, :juice)
   end
 
 end

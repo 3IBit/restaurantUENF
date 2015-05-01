@@ -48,7 +48,7 @@ class DinnersController < ApplicationController
   end
 
   def dinner_params
-    params.require(:dinner).permit(:salad, :accompaniment, :protein1, :protein2, :protein3, :dessert, :juice)
+    params.require(:dinner).permit(:menu_id, :salad, :accompaniment, :protein1, :protein2, :protein3, :dessert, :juice)
   end
 
 end

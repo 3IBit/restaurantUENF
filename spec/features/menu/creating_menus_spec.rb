@@ -14,10 +14,6 @@ feature 'Creating Menus' do
     click_button 'Create Menu'
 
     expect(page).to have_content('Menu has been created.')
-    expect(page).to have_content(Date.today.to_s)
-
-    menu = Menu.where(date: Date.today.to_s).first
-    expect(page.current_url).to eql(menu_url(menu))
   
   end
 end

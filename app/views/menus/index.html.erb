@@ -1,6 +1,9 @@
 <ul>
   <% @menus.each do |menu| %>
-    <li><%= link_to menu.date, menu %></li>
+    <li>
+    	<%= menu.date %>
+    	<%= link_to 'Show', menu %>
+    </li>
   <% end %>
 </ul>
 

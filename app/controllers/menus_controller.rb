@@ -1,13 +1,18 @@
 class MenusController < ApplicationController
-	
 	before_action :set_menu, only: [:show, :edit, :update, :destroy]
 	
 	def index
 		@menus = Menu.all
 	end
 
+	def show 
+	end
+
 	def new
 		@menu = Menu.new
+	end
+
+	def edit
 	end
 
 	def create
@@ -19,12 +24,6 @@ class MenusController < ApplicationController
 		else
 			#nothing, yet
 		end
-	end
-
-	def show
-	end
-
-	def edit
 	end
 
 	def update
@@ -51,9 +50,9 @@ class MenusController < ApplicationController
     
       def set_menu
       	@menu = Menu.find(params[:id])
-      	redirect_to menus_path
       end
 
+      
 	  def menu_params
         params.require(:menu).permit(:date)
 	  end
