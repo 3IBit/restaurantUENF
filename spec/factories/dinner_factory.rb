@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :lunch do
+  factory :dinner do
     salad         'Alface'
     accompaniment 'Feijão'
     garrison      'Espaguete ao sugo'

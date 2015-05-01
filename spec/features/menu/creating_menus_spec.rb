@@ -13,8 +13,13 @@ feature 'Creating Menus' do
 
 
     click_button 'Create Menu'
-    
-    expect(page).to have_content(Date.today.to_s)
+
     expect(page).to have_content('Menu has been created.')
+    expect(page).to have_content(Date.today.to_s)
+    expect(page).to have_content('Lunch')
+    expect(page).to have_content('Dinner')
+    expect(page).to have_content('Back')
+
+  
   end
 end

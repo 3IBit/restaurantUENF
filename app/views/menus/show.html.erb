@@ -1,3 +1,7 @@
 <%= @menu.date %>
-<%= link_to 'Edit Menu', edit_menu_path %>
-<%= link_to 'Delete Menu', 	menu_path(@menu), method: :delete, data: { confirm: "Are you sure you want to delete this menu?" } %>
+</br>
+<%= link_to 'Edit Menu', edit_menu_path %> |
+<%= link_to 'Delete Menu', 	menu_path(@menu), method: :delete, data: { confirm: "Are you sure you want to delete this menu?" } %> |
+<%= link_to 'Lunch', new_lunch_path %> |
+<%= link_to 'Dinner', new_dinner_path %> |
+<%= link_to 'Back', menus_path %>
