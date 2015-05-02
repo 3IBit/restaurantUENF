@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-   
-  root 'menus#index'
+
+  root 'pages#home'
 
   resources :menus do
     resources :lunches
