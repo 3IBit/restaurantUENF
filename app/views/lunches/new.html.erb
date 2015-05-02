@@ -1,4 +1,4 @@
-<%= simple_form_for @lunch, defaults: { input_html: { class: 'default_class' } }  do |f| %>
+<%= simple_form_for [@menu,@lunch], defaults: { input_html: { class: 'default_class' } }  do |f| %>
  
     <%= f.input :salad %>
     <%= f.input :accompaniment %>

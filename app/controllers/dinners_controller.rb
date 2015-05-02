@@ -3,11 +3,11 @@ class DinnersController < ApplicationController
   before_action :set_dinner, only: [:show, :edit, :update, :destroy]
 
 	def new
-		@dinner = @menu.dinner.build
+		@dinner = @menu.build_dinner
 	end
 
 	def create
-      @dinner = @menu.dinner.build(dinner_params)
+      @dinner = @menu.create_dinner(dinner_params)
  
       if @dinner.save
         flash[:notice] = 'Dinner has been created.'
@@ -44,7 +44,7 @@ class DinnersController < ApplicationController
   end
 
   def set_dinner
-    @dinner = @menu.dinners.find(params[:id])
+    @dinner = Dinner.find(params[:id])
   end
 
   def dinner_params

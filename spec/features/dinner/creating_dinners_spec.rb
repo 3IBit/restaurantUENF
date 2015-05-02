@@ -4,9 +4,9 @@ require 'capybara/rails'
 feature 'Creating dinners' do
 
   before do
-    menu = FactoryGirl.create(:menu)
+    FactoryGirl.create(:menu, date: Date.today.to_s)
     visit '/'
-    click_link menu.date
+    click_link Date.today.to_s
     click_link "New Dinner"
   end
 
