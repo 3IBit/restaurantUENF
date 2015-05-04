@@ -1,17 +1,17 @@
 class DinnersController < ApplicationController
-	before_action :set_menu
+ 
   before_action :set_dinner, only: [:show, :edit, :update, :destroy]
 
 	def new
-		@dinner = @menu.build_dinner
+		@dinner = Dinner.new
 	end
 
 	def create
-      @dinner = @menu.create_dinner(dinner_params)
+      @dinner = Dinner.new(dinner_params)
  
       if @dinner.save
         flash[:notice] = 'Dinner has been created.'
-        redirect_to [@menu,@dinner]
+        redirect_to @dinner
       else
         #nothing, yet
       end
@@ -24,7 +24,7 @@ class DinnersController < ApplicationController
     def update
       if @dinner.update(dinner_params)
         flash[:notice] = 'Dinner has been updated.'
-        redirect_to [@menu, @dinner]
+        redirect_to @dinner
       else
        render action: 'edit'
       end
@@ -34,21 +34,17 @@ class DinnersController < ApplicationController
       @dinner.destroy
       flash[:notice] = 'Dinner has been deleted.'
 
-      redirect_to @menu
+      redirect_to @dinner
     end
 
   private
-
-  def set_menu
-    @menu = Menu.find(params[:menu_id])
-  end
 
   def set_dinner
     @dinner = Dinner.find(params[:id])
   end
 
   def dinner_params
-    params.require(:dinner).permit(:menu_id, :salad, :accompaniment, :protein1, :protein2, :protein3, :dessert, :juice)
+    params.require(:dinner).permit( :salad, :accompaniment, :protein1, :protein2, :protein3, :dessert, :juice)
   end
 
 end

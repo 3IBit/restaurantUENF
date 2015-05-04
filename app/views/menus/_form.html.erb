@@ -1,6 +1,0 @@
-<%= simple_form_for @menu, defaults: { input_html: { class: 'default_class' } } do |f| %>
-  <%= f.input :date, as: :date, start_year: Date.today.year,
-                              end_year: Date.today.year, discard_day: false,
-                              order: [:day, :month, :year] %>
-  <%= f.button :submit %>
-<% end %>

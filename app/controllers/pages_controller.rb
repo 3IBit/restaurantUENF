@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
 
   def home
-  	@menus = Menu.last(5)
+  	@lunches = Lunch.last(5)
+  	@dinners = Dinner.last(5)
   end
 
  
