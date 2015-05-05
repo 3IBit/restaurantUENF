@@ -1,6 +1,6 @@
 class LunchesController < ApplicationController
   
-
+  before_action :authenticate_user!
   before_action :set_lunch, only: [:show, :edit, :update, :destroy]
 
 	def new
@@ -8,7 +8,8 @@ class LunchesController < ApplicationController
 	end
 
 	def create
-      @lunch = Lunch.new(lunch_params)
+      @user  = current_user
+      @lunch = @user.lunch.build(lunch_params)
 
        if @lunch.save
          flash[:notice] = 'Lunch has been created.'

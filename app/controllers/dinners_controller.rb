@@ -1,5 +1,6 @@
 class DinnersController < ApplicationController
- 
+  
+  before_action :authenticate_user!
   before_action :set_dinner, only: [:show, :edit, :update, :destroy]
 
 	def new
@@ -7,7 +8,8 @@ class DinnersController < ApplicationController
 	end
 
 	def create
-      @dinner = Dinner.new(dinner_params)
+      @user = current_user
+      @dinner = @user.dinner.build(dinner_params)
  
       if @dinner.save
         flash[:notice] = 'Dinner has been created.'
